@@ -1,11 +1,18 @@
 package com.revature.refactor.Model;
 
-import java.util.Objects;
+import javax.persistence.*;
+import java.util.*;
 
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int accountId;
     private String username;
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "postedBy", referencedColumnName = "accountId")
+    private List<Message> messages;
 
     public Account(int accountId, String username, String password) {
         this.accountId = accountId;
