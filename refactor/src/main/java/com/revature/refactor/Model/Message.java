@@ -1,8 +1,13 @@
 package com.revature.refactor.Model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int messageId;
     private int postedBy;
     private String messageText;
