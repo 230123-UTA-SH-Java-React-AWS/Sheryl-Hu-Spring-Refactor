@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountService {
     @Autowired
-    public AccountRepository accountRepo;
+    private AccountRepository accountRepo;
 
     public Account createAccount(Account account) {
         if (account.getUsername() != "" && account.getPassword().length() >= 4 && accountRepo.findAccountByUsername(account.getUsername()) == null) {
