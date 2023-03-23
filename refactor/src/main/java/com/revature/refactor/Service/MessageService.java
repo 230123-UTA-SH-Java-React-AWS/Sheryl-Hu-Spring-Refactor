@@ -32,4 +32,20 @@ public class MessageService {
             return messageRepo.findById(messageId);
         }
     }
+
+    public List<Message> getMessagesByAccount(int accountId) {
+        return messageRepo.findAllMessagesByPostedBy(accountId);
+    }
+
+    public Message updateMessage(int messageId, Message message) {
+        if (messageRepo.findById(messageId).isPresent() && message.getMessageText().length() > 0 && message.getMessageText().length() <= 255) {
+            return messageRepo.save(message);
+        } else {
+            return null;
+        }
+    }
+
+    public void deleteMessage(int messageId) {
+        messageRepo.deleteById(messageId);
+    }
 }
