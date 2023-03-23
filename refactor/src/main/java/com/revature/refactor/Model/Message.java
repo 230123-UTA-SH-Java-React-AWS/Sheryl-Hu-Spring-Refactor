@@ -1,10 +1,12 @@
 package com.revature.refactor.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +14,9 @@ public class Message {
     private int postedBy;
     private String messageText;
     private long timePostedEpoch;
+
+    public Message() {
+    }
 
     public Message(int messageId, int postedBy, String messageText,
                    long timePostedEpoch) {

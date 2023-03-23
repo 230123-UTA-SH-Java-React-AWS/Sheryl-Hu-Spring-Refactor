@@ -3,6 +3,7 @@ package com.revature.refactor.Model;
 import javax.persistence.*;
 import java.util.*;
 
+@Entity
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +14,9 @@ public class Account {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "postedBy", referencedColumnName = "accountId")
     private List<Message> messages;
+
+    public Account() {
+    }
 
     public Account(int accountId, String username, String password) {
         this.accountId = accountId;
