@@ -42,6 +42,7 @@ public class MessageController {
         }
     }
 
+    //Fix this later
     @PatchMapping("/{message_id}")
     public ResponseEntity<Message> updateMessage(@PathVariable int message_id
             , @RequestBody Message message) {
@@ -51,4 +52,16 @@ public class MessageController {
             return ResponseEntity.status(400).body(null);
         }
     }
+
+    @DeleteMapping("/{message_id}")
+    public ResponseEntity<String> deleteMessage(@PathVariable int message_id) {
+        if (messageService.deleteMessage(message_id)) {
+            return ResponseEntity.status(200).body("Message successfully " +
+                    "deleted");
+        } else {
+            return ResponseEntity.status(400).body("Message could not be " +
+                    "deleted");
+        }
+    }
+
 }
