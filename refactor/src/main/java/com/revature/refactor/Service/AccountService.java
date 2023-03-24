@@ -4,6 +4,7 @@ import com.revature.refactor.Model.Account;
 import com.revature.refactor.Repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
 @Service
 public class AccountService {
@@ -24,5 +25,9 @@ public class AccountService {
         } else {
             return null;
         }
+    }
+
+    public List<Account> getAllAccounts() {
+        return accountRepo.findAll();
     }
 }
