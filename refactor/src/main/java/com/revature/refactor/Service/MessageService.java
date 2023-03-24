@@ -48,7 +48,12 @@ public class MessageService {
         }
     }
 
-    public void deleteMessage(int messageId) {
-        messageRepo.deleteById(messageId);
+    public boolean deleteMessage(int messageId) {
+        if (messageRepo.findById(messageId).isPresent()) {
+            messageRepo.deleteById(messageId);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
