@@ -4,8 +4,11 @@ import com.revature.refactor.Repository.AccountRepository;
 import com.revature.refactor.Repository.MessageRepository;
 import com.revature.refactor.Model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.*;
 
+@Service
 public class MessageService {
     @Autowired
     private MessageRepository messageRepo;
