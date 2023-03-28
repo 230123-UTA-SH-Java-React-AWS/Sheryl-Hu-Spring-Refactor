@@ -42,8 +42,8 @@ public class MessageController {
         }
     }
 
-    //Fix this later
-    @PatchMapping("/{message_id}")
+
+    @PutMapping("/{message_id}")
     public ResponseEntity<Message> updateMessage(@PathVariable int message_id
             , @RequestBody Message message) {
         if (messageService.updateMessage(message_id, message) != null) {
